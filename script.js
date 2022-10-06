@@ -6,22 +6,22 @@ let op1;
 let op2;
 
 const add = function (a, b) {
-    let result = Math.round((a + b)*100)/100;
+    let result = Math.round((a + b) * 100) / 100;
     return result;
 };
 
 const subtract = function (a, b) {
-    let result =  Math.round((a - b)*100)/100;
+    let result = Math.round((a - b) * 100) / 100;
     return result;
 };
 
 const multiply = function (a, b) {
-    let result =  Math.round((a * b)*100)/100;
+    let result = Math.round((a * b) * 100) / 100;
     return result;
 };
 
 const divide = function (a, b) {
-    let result =  Math.round((a / b)*100)/100;
+    let result = Math.round((a / b) * 100) / 100;
     return result;
 };
 
@@ -58,8 +58,8 @@ function operateFromSymbol(a, b, op) {
 }
 
 function composeNum(e) {
-    if (e.target.innerText===".") {
-        document.getElementById('decimal').setAttribute('disabled','disabled');
+    if (e.target.innerText === ".") {
+        document.getElementById('decimal').setAttribute('disabled', 'disabled');
     }
     let digit = document.createElement('div');
     num = num.concat(e.target.innerText);
@@ -77,9 +77,10 @@ function emptyNum(e) {
         op1 = undefined;
         op2 = undefined;
         document.getElementById('decimal').removeAttribute("disabled");
-    } 
-    
+    }
+
     else if (btn === '-') {
+        document.getElementById('decimal').removeAttribute("disabled");
         if (op1 === undefined) {
             op1 = "-";
         } else if (op1 != undefined && op2 === undefined) {
@@ -104,9 +105,10 @@ function emptyNum(e) {
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } 
-    
+    }
+
     else if (btn === '+') {
+        document.getElementById('decimal').removeAttribute("disabled");
         if (op1 === undefined) {
             op1 = "+";
         } else if (op1 != undefined && op2 === undefined) {
@@ -131,9 +133,10 @@ function emptyNum(e) {
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } 
-    
+    }
+
     else if (btn === '×') {
+        document.getElementById('decimal').removeAttribute("disabled");
         if (op1 === undefined) {
             op1 = "*";
         } else if (op1 != undefined && op2 === undefined) {
@@ -158,9 +161,10 @@ function emptyNum(e) {
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } 
-    
+    }
+
     else if (btn === '÷') {
+        document.getElementById('decimal').removeAttribute("disabled");
         if (op1 === undefined) {
             op1 = "/";
         } else if (op1 != undefined && op2 === undefined) {
@@ -186,6 +190,7 @@ function emptyNum(e) {
         }
         num = "";
     } else if (btn === '=') {
+        document.getElementById('decimal').removeAttribute("disabled");
         num2 = parseInt(num);
         num = "";
         displayContainer.innerHTML = "";
