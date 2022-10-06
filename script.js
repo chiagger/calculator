@@ -6,23 +6,23 @@ let op1;
 let op2;
 
 const add = function (a, b) {
-    let result = a + b;
-    return Math.round(result);
+    let result = Math.round((a + b)*100)/100;
+    return result;
 };
 
 const subtract = function (a, b) {
-    let result = a - b;
-    return result.toFixed(3);
+    let result =  Math.round((a - b)*100)/100;
+    return result;
 };
 
 const multiply = function (a, b) {
-    let result = a * b;
-    return result.toFixed(3);
+    let result =  Math.round((a * b)*100)/100;
+    return result;
 };
 
 const divide = function (a, b) {
-    let result = a / b;
-    return result.toFixed(3);
+    let result =  Math.round((a / b)*100)/100;
+    return result;
 };
 
 function operateFromEquals(a, b, op) {
