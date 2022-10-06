@@ -7,22 +7,22 @@ let op2;
 
 const add = function (a, b) {
     let result = a + b;
-    return result;
+    return Math.round(result);
 };
 
 const subtract = function (a, b) {
     let result = a - b;
-    return result;
+    return result.toFixed(3);
 };
 
 const multiply = function (a, b) {
     let result = a * b;
-    return result;
+    return result.toFixed(3);
 };
 
 const divide = function (a, b) {
     let result = a / b;
-    return result;
+    return result.toFixed(3);
 };
 
 function operateFromEquals(a, b, op) {
@@ -73,7 +73,9 @@ function emptyNum(e) {
         num2 = undefined;
         op1 = undefined;
         op2 = undefined;
-    } else if (btn === '-') {
+    } 
+    
+    else if (btn === '-') {
         if (op1 === undefined) {
             op1 = "-";
         } else if (op1 != undefined && op2 === undefined) {
@@ -84,13 +86,23 @@ function emptyNum(e) {
         }
         displayContainer.innerHTML = "";
         if (num1 === undefined) {
-            num1 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num1 = parseFloat(num);
+            } else {
+                num1 = parseInt(num);
+            }
         } else {
-            num2 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num2 = parseFloat(num);
+            } else {
+                num2 = parseInt(num);
+            }
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } else if (btn === '+') {
+    } 
+    
+    else if (btn === '+') {
         if (op1 === undefined) {
             op1 = "+";
         } else if (op1 != undefined && op2 === undefined) {
@@ -101,13 +113,23 @@ function emptyNum(e) {
         }
         displayContainer.innerHTML = "";
         if (num1 === undefined) {
-            num1 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num1 = parseFloat(num);
+            } else {
+                num1 = parseInt(num);
+            }
         } else {
-            num2 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num2 = parseFloat(num);
+            } else {
+                num2 = parseInt(num);
+            }
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } else if (btn === '×') {
+    } 
+    
+    else if (btn === '×') {
         if (op1 === undefined) {
             op1 = "*";
         } else if (op1 != undefined && op2 === undefined) {
@@ -118,13 +140,23 @@ function emptyNum(e) {
         }
         displayContainer.innerHTML = "";
         if (num1 === undefined) {
-            num1 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num1 = parseFloat(num);
+            } else {
+                num1 = parseInt(num);
+            }
         } else {
-            num2 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num2 = parseFloat(num);
+            } else {
+                num2 = parseInt(num);
+            }
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
-    } else if (btn === '÷') {
+    } 
+    
+    else if (btn === '÷') {
         if (op1 === undefined) {
             op1 = "/";
         } else if (op1 != undefined && op2 === undefined) {
@@ -135,9 +167,17 @@ function emptyNum(e) {
         }
         displayContainer.innerHTML = "";
         if (num1 === undefined) {
-            num1 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num1 = parseFloat(num);
+            } else {
+                num1 = parseInt(num);
+            }
         } else {
-            num2 = parseInt(num);
+            if (num.indexOf(".") != -1) {
+                num2 = parseFloat(num);
+            } else {
+                num2 = parseInt(num);
+            }
             operateFromSymbol(num1, num2, op1);
         }
         num = "";
@@ -146,7 +186,7 @@ function emptyNum(e) {
         num = "";
         displayContainer.innerHTML = "";
         if (op2 === undefined) {
-            op2=op1;
+            op2 = op1;
         }
         operateFromEquals(num1, num2, op2);
 
