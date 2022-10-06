@@ -58,6 +58,9 @@ function operateFromSymbol(a, b, op) {
 }
 
 function composeNum(e) {
+    if (e.target.innerText===".") {
+        document.getElementById('decimal').setAttribute('disabled','disabled');
+    }
     let digit = document.createElement('div');
     num = num.concat(e.target.innerText);
     digit.textContent = e.target.innerText;
@@ -73,6 +76,7 @@ function emptyNum(e) {
         num2 = undefined;
         op1 = undefined;
         op2 = undefined;
+        document.getElementById('decimal').removeAttribute("disabled");
     } 
     
     else if (btn === '-') {
